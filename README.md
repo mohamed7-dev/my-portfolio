@@ -3,7 +3,7 @@
 A sleek, responsive portfolio that highlights Mohamed Shaban’s work as a Frontend Engineer. It features a refined dark theme with Islamic-inspired accents, a projects showcase inside a laptop frame, and a smooth mobile experience.
 
 ## Live Demo
-https://YOUR-DEPLOYED-URL
+https://mohamed7-dev.github.io/my-portfolio
 
 ## Tech Stack
 - HTML + Tailwind CSS (via CDN)
