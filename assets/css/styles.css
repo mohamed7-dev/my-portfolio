@@ -1,0 +1,208 @@
+img,
+video,
+svg,
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+h1,
+h2,
+h3,
+p,
+a,
+li,
+span {
+  overflow-wrap: anywhere;
+}
+html,
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: clip; /* prevent any horizontal scrolling */
+  overflow-x: hidden; /* fallback for browsers without clip */
+}
+html {
+  background-color: #070b10;
+}
+body {
+  background-color: #070b10; /* base color under layers */
+  /* Layered background: semi-transparent gradient + geometric pattern */
+  background: radial-gradient(
+      1200px 800px at 10% -10%,
+      rgba(14, 26, 34, 0.75),
+      rgba(10, 17, 22, 0.65) 55%,
+      rgba(7, 11, 16, 0.55)
+    ),
+    url("../img/pattern.svg");
+  background-size: auto, 320px;
+  background-repeat: no-repeat, repeat;
+  background-position: center, top left;
+  background-attachment: fixed, fixed;
+}
+@media (max-width: 760px) {
+  body {
+    background-attachment: scroll, scroll;
+  }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; /* fullscreen */
+    width: 100vw; /* fullscreen */
+    height: 100dvh;
+    min-height: 100vh;
+    z-index: 110; /* above header */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center items */
+    justify-content: center;
+    gap: 28px;
+    padding: 96px 24px 28px;
+    border: 0; /* no side border when fullscreen */
+    backdrop-filter: blur(20px);
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 300ms cubic-bezier(0.22, 0.61, 0.36, 1),
+      opacity 300ms ease;
+    overflow-y: auto;
+    box-sizing: border-box;
+    max-width: 100vw; /* never exceed viewport width */
+    contain: layout paint; /* isolate from page layout to avoid overflow */
+    /* Patterned overlay mixed with darker glass (more opaque) */
+    background-image: url("../img/pattern.svg");
+    background-color: rgba(7, 11, 16, 0.98);
+    background-blend-mode: overlay;
+    background-size: 320px;
+    background-repeat: repeat;
+  }
+  /* Golden arches at top and bottom of the sidebar */
+  .nav-links::before,
+  .nav-links::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px; /* wider */
+    height: 60px; /* shorter for a flatter arch */
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    pointer-events: none;
+  }
+  .nav-links::before {
+    top: 14px;
+    border-bottom: none;
+    border-radius: 85% 85% 0 0 / 140% 140% 0 0; /* flatter curvature */
+    background: linear-gradient(
+      180deg,
+      rgba(212, 175, 55, 0.08),
+      rgba(0, 0, 0, 0)
+    );
+  }
+  .nav-links::after {
+    bottom: 14px;
+    border-top: none;
+    border-radius: 0 0 85% 85% / 0 0 140% 140%; /* flatter curvature */
+    background: linear-gradient(
+      0deg,
+      rgba(212, 175, 55, 0.08),
+      rgba(0, 0, 0, 0)
+    );
+  }
+  .nav-links.open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  .nav-links a {
+    display: block;
+    text-align: center; /* center items */
+    width: 100%;
+    max-width: 520px;
+    font-size: clamp(18px, 5vw, 24px);
+    padding: 16px 20px;
+    border-radius: 16px;
+    color: #f0f5fa;
+    text-decoration: none;
+    /* Remove patterns from item backgrounds */
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  }
+  body.no-scroll {
+    overflow: hidden;
+  }
+}
+/* Centered section headers with Islamic-style arch */
+.section-header {
+  position: relative;
+  padding-top: 18px;
+  text-align: center;
+}
+.section-header h3.arch-title {
+  position: relative;
+  display: inline-block;
+  padding: 6px 16px 2px;
+  font-family: "El Messiri", "Inter", sans-serif;
+  letter-spacing: 0.2px;
+}
+.section-header h3.arch-title::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -14px;
+  width: 180px;
+  height: 80px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-bottom: none;
+  border-radius: 90% 90% 0 0 / 100% 100% 0 0;
+  background: linear-gradient(
+    180deg,
+    rgba(212, 175, 55, 0.08),
+    rgba(0, 0, 0, 0)
+  );
+  pointer-events: none;
+}
+.section-header::after {
+  content: "";
+  display: block;
+  width: 160px;
+  height: 10px;
+  margin: 12px auto 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.6),
+    transparent
+  );
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 50%,
+    #000 40%,
+    transparent 41%
+  );
+  mask-image: radial-gradient(circle at 50% 50%, #000 40%, transparent 41%);
+}
+
+/* Project screenshot tint behavior */
+.laptop-screen { position: relative; }
+.laptop-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.laptop-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 17, 22, 0.45); /* dark tint */
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 200ms ease;
+}
+/* On hover-capable devices: remove tint on hover */
+@media (hover: hover) {
+  .laptop-screen:hover::after { opacity: 0; }
+}
+/* On touch/non-hover devices: show image as-is (no tint) */
+@media (hover: none) {
+  .laptop-screen::after { opacity: 0; }
+}
+
