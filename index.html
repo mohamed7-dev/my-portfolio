@@ -385,7 +385,8 @@
         </div>
         <form
           class="p-[18px] bg-white/5 border border-yellow-500/20 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl"
-          onsubmit="event.preventDefault(); alert('This is a demo form. Connect it to your backend or email service.');"
+          action="https://formsubmit.co/mo.job3830@gmail.com"
+          method="POST"
         >
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
             <label class="flex flex-col gap-1 text-mutedc">
@@ -394,6 +395,7 @@
                 class="bg-white/5 border border-yellow-500/30 rounded-xl px-3 py-2 text-textc"
                 type="text"
                 placeholder="Your name"
+                name="name"
                 required
               />
             </label>
@@ -402,7 +404,9 @@
               <input
                 class="bg-white/5 border border-yellow-500/30 rounded-xl px-3 py-2 text-textc"
                 type="email"
+                inputmode="email"
                 placeholder="you@example.com"
+                name="email"
                 required
               />
             </label>
@@ -413,9 +417,30 @@
               class="w-full mt-1 bg-white/5 border border-yellow-500/30 rounded-xl px-3 py-2 text-textc"
               placeholder="Tell me a bit about your project"
               rows="5"
+              name="message"
               required
             ></textarea>
           </label>
+          <!-- Options -->
+          <input
+            type="hidden"
+            name="_subject"
+            value="New message from portfolio"
+          />
+          <input
+            type="hidden"
+            name="_next"
+            value="https://mohamed7-dev.github.io/my-portfolio/thank-you.html"
+          />
+          <input
+            type="text"
+            name="_honey"
+            style="display: none"
+            tabindex="-1"
+            autocomplete="off"
+          />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
           <button
             class="mt-3 inline-block px-4 py-2 rounded-xl text-[#0b0f14] no-underline border-0 bg-gradient-to-b from-[#d4af37] to-[#b9921f] shadow-[0_8px_30px_rgba(212,175,55,0.35)]"
             type="submit"
