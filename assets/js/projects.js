@@ -34,13 +34,14 @@ export const projects = [
     featured: true,
   },
   {
-    id: "design-system",
-    title: "Design System",
-    description: "Tokens, components, and themes for rapid delivery.",
-    image: "assets/img/screenshot3.svg",
-    url: "#",
-    source: "#",
-    tags: ["Design Tokens", "Components", "Themes"],
+    id: "brain-crush-app",
+    title: "Brain Crush",
+    description:
+      "E-learning platform built with Next.js (App Router) featuring course browsing, search with live suggestions, video streaming, purchases, and progress tracking.",
+    image: "assets/img/screenshots/brain-crush-screenshot.webp",
+    url: "https://brain-crush.vercel.app/",
+    source: "https://github.com/mohamed7-dev/brain-crush.git",
+    tags: ["Nextjs", "MUI", "Cloudinary", "Reactjs", "Stripe", "Clerk"],
     featured: true,
   },
 ];
