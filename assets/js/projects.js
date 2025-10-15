@@ -98,6 +98,6 @@ export const projects = [
     url: "https://brain-crush.vercel.app",
     source: "https://github.com/mohamed7-dev/brain-crush.git",
     tags: ["Nextjs", "Reactjs", "MUI", "Cloudinary", "Stripe", "Clerk"],
-    featured: false,
+    featured: true,
   },
 ];
